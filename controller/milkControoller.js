@@ -5,24 +5,28 @@ const milkControoller={
 
   async addMilk(req,res){
       const {customerId,liter,fat}=req.body;
-      const customer=await Customer.findOne({customerId});
-      if(!customerId){
-        return res.json({"User status":"This user is not registred in our dairy"});
-      }
+      let customer;
       let data;
+  
       try {
-        const milk=new Milk({
-          customerId,liter,fat
-        }); 
-        data=await milk.save();
+        const find=await Customer.findOne({customerId});
+        if(find){
+          const milk=new Milk({
+            customerId,liter,fat
+          }); 
+          data=await milk.save();
+        } 
+        else{
+          return res.json({"User":"Not added in our dairy milk"});
+        }
       } catch (error) {
-        return res.json({"error":error});
-      }
-      res.status(201).json(data);
-
-
+        return res.json({"Error":error});
+      }        
+         
+        
       
-
+    
+      res.status(201).json(data);
   },
   async finding(req,res){
     const customerId=req.params.customerId;

@@ -1,0 +1,19 @@
+1.add customer in your dairy
+  https://dairymilkapi.herokuapp.com/addCustomer
+  {
+    "customerName":"Gopal Patidar",
+    "customerId":2
+ }
+
+
+2. https://dairymilkapi.herokuapp.com/addMilk
+   adding milk on daily basis
+   Give Data on JSON format
+   {
+    "customerId":2,
+    "liter":7,
+    "fat":6.6
+   }
+
+3. find milk data with customerId
+   https://dairymilkapi.herokuapp.com/findMilkData/1 here 1 is customerId

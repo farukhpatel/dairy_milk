@@ -30,8 +30,11 @@ const milkControoller={
   },
   async finding(req,res){
     const customerId=req.params.customerId;
-    const milkData=await Milk.find({customerId});
+    const milkData=await Milk.findOne({customerId});
+    if(!milkData){
+      return res.json({'message':'No customer found with this customerId'});
+    }
     res.json({"milkHistory":milkData});
-  }
+}
 }
 module.exports=milkControoller;

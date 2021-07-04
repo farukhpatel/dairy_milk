@@ -1,9 +1,9 @@
 1.add customer in your dairy
   https://dairymilkapi.herokuapp.com/addCustomer
   {
-    "customerName":"Gopal Patidar",
-    "customerId":2
- }
+    "customerName":"Farukh Patel",
+    "customerId":1
+  }
 
 
 2. https://dairymilkapi.herokuapp.com/addMilk

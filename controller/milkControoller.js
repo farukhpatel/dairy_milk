@@ -32,7 +32,7 @@ const milkControoller={
     const customerId=req.params.customerId;
     const milkData=await Milk.findOne({customerId});
     if(!milkData){
-      return res.json({'message':'No customer found with this customerId'});
+      return res.json({'message':'No customer found with this customer ID'});
     }
     res.json({"milkHistory":milkData});
 }

@@ -31,7 +31,7 @@ const milkControoller={
   async finding(req,res){
     const customerId=req.params.customerId;
     const milkData=await Milk.find({customerId});
-    res.json({"Your milk data histrory":milkData});
+    res.json({"milkHistory":milkData});
   }
 }
 module.exports=milkControoller;

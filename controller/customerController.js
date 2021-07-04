@@ -12,7 +12,7 @@ const customerController={
             customerId
         });
         const data=await customer.save();
-        res.send({"User data saved":data});
+        res.send({"saved":data});
     } catch (error) {
         return res.json({"error":error});
     }

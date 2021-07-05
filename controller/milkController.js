@@ -1,13 +1,12 @@
 const Customer = require('../model/costomer');
-const Milk = require('./../model/milk');
+const Milk = require('../model/milk');
 
-const milkControoller = {
+const milkController = {
 
   async addMilk(req, res) {
     const { customerId, liter, fat } = req.body;
     let customer;
     let data;
-
     try {
       const find = await Customer.findOne({ customerId });
       if (!find) {
@@ -20,19 +19,15 @@ const milkControoller = {
     } catch (error) {
       return res.json({ "Error": error });
     }
-
-
-
-
     res.status(201).json(data);
   },
   async finding(req, res) {
     const customerId = req.params.customerId;
-    const milkData = await Milk.findOne({ customerId });
-    if (!milkData) {
+    const milkData = await Milk.find({ customerId });
+    if (!milkData.length) {
       return res.json({ 'message': 'No customer found with this customer ID' });
     }
     res.json({ "milkHistory": milkData });
   }
 }
-module.exports = milkControoller;
+module.exports =milkController ;

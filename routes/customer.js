@@ -1,7 +1,7 @@
 const router=require('express').Router();
 const customerController=require('./../controller/customerController');
-const milkControoller=require('./../controller/milkControoller');
+const milkController=require('./../controller/milkController');
 router.post('/addCustomer',customerController.customerLogin);
-router.post('/addMilk',milkControoller.addMilk);
-router.get('/findMilkData/:customerId',milkControoller.finding);
+router.post('/addMilk',milkController.addMilk);
+router.get('/findMilkData/:customerId',milkController.finding);
 module.exports=router;
